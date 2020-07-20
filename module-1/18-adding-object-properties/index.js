@@ -5,16 +5,18 @@ const user = {};
 
 
 /**
- * Exercise 1 
- * 
- * add property "firstName" to "user" and assign any name 
+ * Exercise 1
+ *
+ * add property "firstName" to "user" and assign any name
  */
+ user.firstName = 'AJ'
 
 /**
  * Exercise 2
- * 
- * add property "lastName" to "user" and assign any last name 
+ *
+ * add property "lastName" to "user" and assign any last name
  */
+ user.lastName = 'PATIL'
 
 /**
  * Exercise 3
@@ -22,3 +24,12 @@ const user = {};
  * 2 params, first - property name and second - property value
  * and set a new property for 'user' object
  */
+ function addANewProperty(proName,proValue) {
+   return user[proName] = proValue
+
+
+ }
+
+ addANewProperty('age', 29)
+
+console.log(user)

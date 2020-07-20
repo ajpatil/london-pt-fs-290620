@@ -28,6 +28,8 @@ const user = {
  *
  * PS: use console.log() to see the result
  */
+ let userFirstName = user.firstName;
+ console.log(userFirstName)
 
 /**
  * Exercise 2
@@ -38,6 +40,9 @@ const user = {
  *
  * PS: use console.log() to see the result
  */
+ let favoriteMovie = user.favoriteMovies[0]
+
+	console.log(favoriteMovie)
 
 /**
  * Exercise 3
@@ -47,6 +52,10 @@ const user = {
  *
  * PS: use console.log() to see the result
  */
+ let userFullName = `${user.firstName} ${user.lastName}`
+
+	console.log(userFullName)
+
 
 /**
  * Exercise 4
@@ -57,6 +66,12 @@ const user = {
  * PS: use console.log() to see the result
  */
 
+ function getFullName() {
+  return user.firstName + " " + user.lastName
+};
+
+ console.log(getFullName())
+
 /**
  * Exercise 5
  *
@@ -65,6 +80,9 @@ const user = {
  *
  * PS: use console.log() to see the result
  */
+ let mothersFirstName = user.parents.mother.firstName
+
+	console.log(mothersFirstName)
 
 /**
  * Exercise 6
@@ -75,6 +93,19 @@ const user = {
  *
  * PS: use console.log() to see the result
  */
+ function getParentFullName(parent) {
+
+
+     if (parent === 'mother'){
+       return user.parents.mother.firstName + " " + user.parents.mother.lastName;
+     }else if (parent === 'father') {
+       return user.parents.father.firstName + " " + user.parents.father.lastName;
+     }
+
+  }
+	console.log(getParentFullName('mother'))
+
+
 
 /**
  * Exercise 7
@@ -84,3 +115,10 @@ const user = {
  *
  * * PS: use console.log() to see the result
  */
+ function getUserData (proName) {
+   return user[proName]
+
+
+ }
+ console.log(getUserData('age'))
+ console.log(getUserData('password'))
