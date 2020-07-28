@@ -44,16 +44,14 @@ describe("isLessThan100", () => {
 	test("isLessThan100 is declared and has type function", () => {
 		expect(typeof isLessThan100).toEqual("function");
 	});
-
 	test("isLessThan100 is inline function", () => {
 		const isInlineFunction = isLessThan100.toString().includes("function");
 		expect(isInlineFunction).toEqual(true);
 	});
-
-	test("isLessThan100 returns next odd number", () => {
-		expect(isLessThan100(1, 25)).toEqual(false);
+	test("isLessThan100 returns correct boolean", () => {
+		expect(isLessThan100(1, 25)).toEqual(true);
 		expect(isLessThan100(50, 50)).toEqual(false);
-		expect(isLessThan100(50, 51)).toEqual(true);
+		expect(isLessThan100(50, 51)).toEqual(false);
 	});
 });
 
