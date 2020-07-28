@@ -1,18 +1,20 @@
 global.console = {
-  log: jest.fn()
+  log: jest.fn(),
 };
 
 const numbers = [0, 1, 2, 3, 4, 12, 13, 20];
 const strings = ["London", "Manchester", "Chicago", "Detroit", "Mumbai"];
 
-const doubler = jest.fn(number => number * 2);
+const doubler = jest.fn((number) => number * 2);
 const timesIndex = jest.fn((number, i) => number * i);
-const firstLetter = jest.fn(string => string[0]);
-const isEven = jest.fn(number => number > 0 && number % 2 === 0);
-const longerThan6 = jest.fn(string => string.length > 6);
-const longerThan2 = jest.fn(string => string.length > 2);
-const multipleOfSix = jest.fn(number => number > 0 && number % 6 === 0);
-const findCity = jest.fn(targetCity => jest.fn(city => targetCity === city));
+const firstLetter = jest.fn((string) => string[0]);
+const isEven = jest.fn((number) => number > 0 && number % 2 === 0);
+const longerThan6 = jest.fn((string) => string.length > 6);
+const longerThan2 = jest.fn((string) => string.length > 2);
+const multipleOfSix = jest.fn((number) => number > 0 && number % 6 === 0);
+const findCity = jest.fn((targetCity) =>
+  jest.fn((city) => targetCity === city)
+);
 const everyOtherElement = jest.fn((el, i) => i % 2 === 0);
 
 const logArgs = jest.fn((el, i) => console.log(`el: ${el}, i: ${i}`));
@@ -224,7 +226,7 @@ describe("reduce", () => {
       (obj, city, i) => {
         return {
           ...obj,
-          [city]: numbers[i]
+          [city]: numbers[i],
         };
       },
       {}
@@ -233,7 +235,7 @@ describe("reduce", () => {
       strings.reduce((obj, city, i) => {
         return {
           ...obj,
-          [city]: numbers[i]
+          [city]: numbers[i],
         };
       }, {})
     );
