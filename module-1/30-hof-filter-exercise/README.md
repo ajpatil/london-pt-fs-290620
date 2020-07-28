@@ -5,7 +5,7 @@ Another common thing you will do with an array is to reject, or `filter` out, ce
 If you have an array of users which have an `email` and a `recieveNewsletter` property. You shouldn't be sending emails to the users who don't want to recieve a newsletter. To achieve this you could use an if statement:
 
 ```javascript
-users.forEach(user => {
+users.forEach((user) => {
   if (user.recieveNewsletter === true) {
     sendNewsletter(user.email);
   }
@@ -15,8 +15,8 @@ users.forEach(user => {
 Instead, we'll use `filter`. The callback we pass to `filter` must return a `boolean`: `true` or `false`. When the function returns `true`, that element will appear in the newly created array. If the function returns `false`, that element will be filtered out.
 
 ```javascript
-const newsletterUsers = users.filter(user => user.recieveNewsletter === true);
-newsletterUsers.forEach(user => sendNewsletter(user.email));
+const newsletterUsers = users.filter((user) => user.recieveNewsletter === true);
+newsletterUsers.forEach((user) => sendNewsletter(user.email));
 ```
 
 ## Dot chaining
@@ -25,9 +25,9 @@ Now we can use `forEach`, `map` and `filter`, we can _chain_ them together. `map
 
 ```javascript
 users
-  .filter(user => user.recieveNewsletter === true)
-  .filter(user => user.email !== undefined)
-  .map(user => user.email)
+  .filter((user) => user.recieveNewsletter === true)
+  .filter((user) => user.email !== undefined)
+  .map((user) => user.email)
   .forEach(sendNewsletter);
 ```
 
