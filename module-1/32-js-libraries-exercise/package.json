@@ -20,8 +20,11 @@
     "concat": "^1.0.3",
     "husky": "^4.2.3",
     "jest": "^25.1.0"
+<<<<<<< HEAD
   },
   "dependencies": {
     "chalk": "^4.1.0"
+=======
+>>>>>>> fffdabea7582cef8b0e106fb40e01c3bd26c8813
   }
 }

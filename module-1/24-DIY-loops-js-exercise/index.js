@@ -38,41 +38,6 @@ const dataTypes = [
  * }
  */
 
-const sortedData = (data) => {
-  let result = {
-    strings: [],
-    integers: [],
-    floats: [],
-    arrays: [],
-    objects: [],
-  };
-
-  for (let el of data) {
-    switch (true) {
-      case typeof el === "string":
-        result.strings.push(el);
-        break;
-      case Number.isInteger(el) === true:
-        result.integers.push(el);
-        break;
-      case Number(el) === el && el % 1 !== 0:
-        result.floats.push(el);
-        break;
-      case Array.isArray(el) === true:
-        result.arrays.push(el);
-        break;
-      case typeof el === "object":
-        result.objects.push(el);
-        break;
-      default:
-        console.log("undefined element");
-    }
-  }
-  return result;
-};
-
-const numbers = [4, 3, 2, 6, 1, 7];
-
 /**
  * Exercise 2
  *
@@ -105,6 +70,7 @@ const multipliedByNextNumber = function (arr) {
  * ex: multipliedEvenNumbers([4,3,6,8,5,7])
  * result: [24, 3, 48, 16, 5, 7]
  */
+
 const multipliedEvenNumbers = (array) => {
   return array.map((item, key, arr) => {
     if (item % 2) {
@@ -149,6 +115,7 @@ const multipliedOddNumbers = (array) => {
  * If you pass "even" do the same what you have for exercise 3
  * if you pass "odd" do the same what you have for exercise 4
  * else return original array.
+
  */
 
 const multipliedEvenOddNumbers = (nums, type) => {
