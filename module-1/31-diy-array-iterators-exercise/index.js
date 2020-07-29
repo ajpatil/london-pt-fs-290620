@@ -121,15 +121,7 @@ const findIndex = function (array, callback) {
 every time you your callback returns true, increment your counter
 compare your counter with array length, if it's equal return true if not false
  */
-// const every = function (array, callback) {
-//   for (let i = 0; i < array.length; i++) {
-//     let result = callback(array[i], i);
-//     if (!result) {
-//       return false;
-//     }
-//   }
-//   return true;
-// };
+
 const every = function (array, callback) {
   for (let i = 0; i < array.length; i++) {
     let result = callback(array[i], i);
@@ -155,14 +147,7 @@ const every = function (array, callback) {
  * a truthy value.
  *
  */
-// const some = function (array, callback) {
-//   let x;
-//   for (let i = 0; i < array.length; i++) {
-//     if (callback(array[i], i)) {
-//       return true;
-//     }
-//   }
-// };
+
 const some = function (array, callback) {
   let x;
   for (let i = 0; i < array.length; i++) {
