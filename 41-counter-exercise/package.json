@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "concat": "concat -o ./tests/index.test.js ./index.js ./tests/tests.js ",
+    "concat": "concat -o ./tests/index.test.js ./tests/DOM.js ./index.js ./tests/tests.js ",
     "test": "npm run concat && jest"
   },
   
@@ -12,11 +12,9 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@testing-library/dom": "^7.2.0",
     "concat": "^1.0.3",
     "husky": "^4.2.3",
     "jest": "^25.1.0"
-  },
-  "dependencies": {
-    "chalk": "^4.1.0"
   }
 }

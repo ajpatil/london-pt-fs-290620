@@ -9,6 +9,9 @@
  *
  * NOTE: we will use this function for other exercises.
  */
+const createDOMElement = (tagName) => {
+  return document.createElement(tagName);
+};
 
 /**
  * Exercise 2
@@ -18,6 +21,12 @@
  * the body of the document
  */
 
+const addPTag = (text) => {
+  let pTag = createDOMElement("p");
+  pTag.innerText = text;
+  document.body.appendChild(pTag);
+};
+
 /**
  * Exercise 3
  *
@@ -26,6 +35,12 @@
  * which displays the text and has the class and appends
  * the element to the body
  */
+const addElementWithClass = (tagName, text, className) => {
+  let el = createDOMElement(tagName);
+  el.innerText = text;
+  el.classList.add(className);
+  document.body.appendChild(el);
+};
 
 /**
  * Exercise 4
@@ -34,6 +49,15 @@
  * text and an array of classes. Create an element which displays the
  * text, has the array of classes and append it to the body
  */
+const addElementWithMultipleClasses = (tagName, text, arr) => {
+  let el = createDOMElement(tagName);
+  el.innerText = text;
+  arr.forEach(function (className) {
+    el.classList.add(className);
+  });
+
+  document.body.appendChild(el);
+};
 
 /**
  * Exercise 5
@@ -46,6 +70,18 @@
  * Each li should have the text "Item $" (where $ is it's position)
  * Add the list element to the body
  */
+const buildAList = (listType, cls, numElements) => {
+  let el = createDOMElement(listType);
+
+  for (let i = 0; i < numElements; i++) {
+    let li = createDOMElement("li");
+    li.innerText = "Item " + i;
+    el.appendChild(li);
+  }
+  el.classList.add(cls);
+
+  document.body.appendChild(el);
+};
 
 /**
  * Exercise 6
@@ -61,6 +97,13 @@
  *
  */
 
+const prependLiToList = (text, cls) => {
+  let li = document.createElement("li");
+  li.innerText = text;
+  li.classList.add(cls);
+  document.querySelector(".list").prepend(li);
+};
+
 /**
  * Exercise 7
  * !!! to test this function in your browser, first run {buildAList} !!!
@@ -73,6 +116,13 @@
  * Add the li into the list at the position passed to this function.
  *
  */
+const pushToSelectedPosition = (text, cls, pos) => {
+  let li = document.createElement("li");
+  li.innerText = text;
+  li.classList.add(cls);
+  let target = document.querySelector(".list");
+  target.insertBefore(li, target.childNodes[pos]);
+};
 
 /**
  * Exercise 8
@@ -84,3 +134,12 @@
  * element which match the element selector
  *
  */
+const deleteSelectedElements = (pSelect, elSelect) => {
+  let allParentSelectors = document.querySelectorAll(`${pSelect} ${elSelect}`);
+  //   while (allParentSelectors.length > 0) {
+  //     allParentSelectors[0].remove();
+  //   }
+  for (let i = allParentSelectors.length - 1; i >= 0; i--) {
+    allParentSelectors[i].remove();
+  }
+};
