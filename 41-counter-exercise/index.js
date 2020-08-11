@@ -10,6 +10,7 @@ let counter = 0;
  *
  * NOTE: ".counter_value" should always represent the current value of {counter}
  */
+
 const action = (symbol) => {
   let cValue = document.querySelector(".counter_value");
   if (symbol === "+") {
@@ -19,6 +20,7 @@ const action = (symbol) => {
   }
   cValue.innerText = counter;
 };
+
 
 /**
  * Exercise 2
@@ -31,6 +33,7 @@ const action = (symbol) => {
  * NOTE: {step} should be an integer
  *
  */
+
 document.querySelector(".step_form").onsubmit = function (event) {
   event.preventDefault();
   let input = document.querySelector("#step");
@@ -38,6 +41,7 @@ document.querySelector(".step_form").onsubmit = function (event) {
   input.value = 1;
   document.querySelector(".step_value").innerText = step;
 };
+
 
 /**
  * Exercise 3
@@ -47,9 +51,11 @@ document.querySelector(".step_form").onsubmit = function (event) {
  *
  * NOTE: remember to use your {action} function
  */
+
 document.querySelector("#decrement").onclick = function (event) {
   action("-");
 };
+
 
 /**
  * Exercise 4
@@ -59,9 +65,11 @@ document.querySelector("#decrement").onclick = function (event) {
  *
  * NOTE: remember to use your {action} function
  */
+
 document.querySelector("#increment").onclick = function (event) {
   action("+");
 };
+
 
 /**
  * Exercise 5
@@ -71,12 +79,14 @@ document.querySelector("#increment").onclick = function (event) {
  *
  * NOTE: ".counter_value" should represent current state of counter
  */
+
 document.querySelector("#auto_decrement").onclick = function (event) {
   timer = setInterval(() => {
     action("-");
     // console.log(counter, document.querySelector(".counter_value").innerText);
   }, 1000);
 };
+
 
 /**
  * Exercise 6
@@ -86,11 +96,14 @@ document.querySelector("#auto_decrement").onclick = function (event) {
  *
  * NOTE: ".counter_value" should represent current state of counter
  */
+
 document.querySelector("#auto_increment").onclick = function (event) {
   timer = setInterval(() => {
     action("+");
   }, 1000);
 };
+
+
 
 /**
  * Exercise 7
@@ -98,6 +111,7 @@ document.querySelector("#auto_increment").onclick = function (event) {
  * when the user clicks on "#stop_auto",
  * the auto counter should stop
  */
+
 
 document.querySelector("#stop_auto").onclick = function (event) {
   clearInterval(timer);
