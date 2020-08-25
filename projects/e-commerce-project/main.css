@@ -1,0 +1,83 @@
+@import url("https://fonts.google.com/specimen/Nunito?query=nunito&sidebar.open=true&selection.family=Nunito");
+body {
+  background: #f5f5f5;
+  margin: 0;
+  font-family: "Nunito", sans-serif;
+}
+
+figure {
+  background: #fff;
+  display: block;
+  margin: 1.5em;
+  padding: 0.7em;
+}
+
+figure blockquote {
+  padding: 0.5em;
+  font-size: 1.3em;
+  font-style: italic;
+  text-align: center;
+}
+
+figure figcaption {
+  text-align: center;
+  margin-bottom: 1em;
+  font-size: 0.9em;
+}
+
+.glider-contain {
+  width: 85%;
+  margin-top: 12%;
+  margin-bottom: 5%;
+}
+
+.glider-next {
+  right: -50px;
+  top: 50%;
+}
+
+.glider-prev {
+  left: -40px;
+  top: 50%;
+}
+
+.footer-nav {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: row;
+  flex-direction: row;
+}
+/*# sourceMappingURL=main.css.map */
+#icon {
+  position: absolute;
+  background-color: green;
+  width: 15px;
+  min-width: fit-content;
+  height: 15px;
+  color: white;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  font-size: 10px;
+  border-radius: 50%;
+  right: 57px;
+  top: -10px;
+}
+#navbar {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px 58px;
+}
+#navbar > div {
+  display: flex;
+  justify-content: space-around;
+}
+#navbar > div:first-child {
+  width: 300px;
+}
+#navbar div:last-child {
+  width: 100px;
+}

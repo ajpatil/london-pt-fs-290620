@@ -43,32 +43,20 @@
         max-width: 4em;
         border: solid 1px grey;
         box-shadow: 0 0 0.3em;
+        margin-right: 20px;
       }
 
-      #products > div {
+      .product {
         display: flex;
-        margin: 1em 0;
+        justify-content: space-between;
+        margin: 10px 0;
       }
-
-      #products > div > h3 {
-        margin-left: 1em;
+      .product div {
+        display: flex;
+        align-items: center;
       }
-
-      #products > div > select {
-        margin-top: auto;
-        margin-bottom: auto;
-        margin-right: 1em;
-      }
-
-      #products > div > p {
-        margin-top: auto;
-        margin-bottom: auto;
-        margin-left: auto;
-        margin-right: 1em;
-      }
-
-      #products > h3 {
-        margin-top: 0;
+      .product select {
+        margin-left: 10px;
       }
 
       #cart > button {
@@ -82,7 +70,6 @@
       }
 
       .error {
-        float: right;
         padding: 1em;
         background: #e8b6b6;
         border-radius: 0.5em;
@@ -102,8 +89,9 @@
         <div id="products">
           <h3>Choose your products</h3>
         </div>
-        <div id="remaining">
-          Remaining budget: <span data-value="50.00">£50.00</span>
+        <div>Remaining budget: <span id="remaining">£50.00</span></div>
+        <div class="error" style="display: none;">
+          You don't have enough money
         </div>
       </div>
     </main>

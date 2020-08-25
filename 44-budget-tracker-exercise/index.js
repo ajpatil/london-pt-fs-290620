@@ -32,74 +32,48 @@ const products = [
   },
 ];
 
-const totalBudget = document.querySelector("#remaining").querySelector("span");
-let budget = totalBudget.getAttribute("data-value");
+const budget = document.querySelector("#remaining");
+let currentBudget = parseFloat(budget.innerText.split("").slice(1).join(""));
 
-const chooseProductEl = document
-  .querySelector("#cart")
-  .querySelector("#products");
-
-const allProducts = (num) => {
+products.forEach((item) => {
   let listDivElement = document.createElement("div");
-  listDivElement.className = `product_${num}`;
-  listDivElement.innerHTML = `<div><img src=${products[num].img} /><h3>${products[num].name}</h3><p>${products[num].price}</p><select class="option"><option>0</option><option>1</option><option>2</option></select></div>`;
-  chooseProductEl.appendChild(listDivElement);
-};
+  listDivElement.className = "product";
+  listDivElement.innerHTML = `
+    <div>
+      <img src=${item.img} />
+      <h3>${item.name}</h3>
+    </div>
+    <div>
+      <p>${item.price}</p>
+      <select class="option" name='${item.name}' onchange='changeHandler(event,${item.price})'>
+        <option value='0'>0</option>
+        <option value='1'>1</option>
+        <option value='2'>2</option>
+      </select>
+    </div>
+  `;
+  document.querySelector("#products").appendChild(listDivElement);
+});
+let selectObj = {};
 
-allProducts(0);
-allProducts(1);
-allProducts(2);
-allProducts(3);
+function changeHandler(e, price) {
+  let { name, value } = e.target;
+  selectObj[name] = value * price;
 
-const allProductQuantities = document.querySelectorAll("select");
-
-const multiplyQuantityWithPrice = (num) => {
-  let productQuantity = allProductQuantities[num];
-  let productPrice = document
-    .querySelector(`.product_${num}`)
-    .querySelector("p").innerText;
-
-  if (parseInt(productQuantity.selectedIndex) > 0) {
-    let finalAmount =
-      parseInt(productQuantity.selectedIndex) * parseFloat(productPrice);
-    return finalAmount;
+  let current = Object.values(selectObj).reduce(
+    (sum, price) => (sum += price),
+    0
+  );
+  let left = currentBudget - current;
+  if (left < 0) {
+    let error = document.querySelector(".error");
+    error.style.display = "block";
+    selectObj[name] = 0;
+    setTimeout(() => {
+      error.style.display = "none";
+      e.target.value = 0;
+    }, 3000);
+  } else {
+    budget.innerText = "£" + Math.round(left * 100) / 100;
   }
-};
-multiplyQuantityWithPrice(0);
-multiplyQuantityWithPrice(1);
-multiplyQuantityWithPrice(2);
-multiplyQuantityWithPrice(3);
-
-const remainingBudget = (num) => {
-  let mQ = multiplyQuantityWithPrice(num);
-  let remainder = parseFloat(budget) - mQ;
-  budget = remainder;
-  // console.log(typeof budget);
-  console.log(remainder);
-  if (budget < 0) {
-    window.alert("Out of money");
-  } else if (budget > 0) {
-    totalBudget.innerText = budget.toFixed(2);
-  }
-};
-
-const optionsClass = document.querySelectorAll(".option");
-//How can this be turned into a single function?
-optionsClass[0].addEventListener("change", function () {
-  remainingBudget(0);
-});
-
-optionsClass[1].addEventListener("change", function () {
-  console.log("BUY");
-  remainingBudget(1);
-});
-
-optionsClass[2].addEventListener("change", function () {
-  console.log("BUY");
-  remainingBudget(2);
-});
-
-optionsClass[3].addEventListener("change", function () {
-  console.log("BUY");
-  remainingBudget(3);
-});
+}

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link rel="stylesheet" href="Glider.js-master/glider.min.css" />
+    <link rel="stylesheet" href="main.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nunito&display=swap"
+      rel="stylesheet"
+    />
+    <title>Product</title>
+    <script>
+        const queryString = window.location.search;//will get the urlstring and save it inside this variable
+
+		const urlParams = new URLSearchParams(queryString); //this is constructor where we put all query paramaters
+
+		const name = urlParams.get('name');
+    </script>
+  </head>
+  <body>
+    <div class='content'>
+
+    </div>
+
+    <!-- Slideshow -->
+    <div class="glider-contain multiple">
+      <button class="glider-prev">
+        <i class="fa-fa-chevron-left"></i>
+      </button>
+
+      <div class="glider">
+        <figure>
+          <img src="./img/Couch.png" alt="" />
+        </figure>
+        <figure>
+          <img src="./img/Sofa.png" alt="" />
+        </figure>
+        <figure>
+          <img src="./img/Sofa.png" alt="" />
+        </figure>
+        <figure>
+          <img src="./img/Sofa.png" alt="" />
+        </figure>
+      </div>
+      <button class="glider-next">
+        <i class="fa-fa-chevron-right"></i>
+      </button>
+
+      <div id="dots" class="glider-dots"></div>
+    </div>
+
+    <script src="glider.min.js"></script>
+
+    <script>
+      new Glider(document.querySelector(".glider"), {
+        slidesToShow: 5,
+        slidesToScroll: 5,
+        draggable: true,
+        dots: ".dots",
+        arrows: {
+          prev: ".glider-prev",
+          next: ".glider-next",
+        },
+      });
+    </script>
+    <br />
+    <br />
+    <br />
+    <hr class="footer-divider" />
+    <div class="footer-nav">
+      <a href="#">About Us</a>
+      <a href="#">How Can We Help</a>
+      <a href="#">Shop By Room</a>
+      <a href="#">Shop by style</a>
+    </div>
+    <div class="socials">
+      <a href="#"><img src="./img/fb.png" alt="" /></a>
+      <a href="#"><img src="./img/ig.png" alt="" /></a>
+      <a href="#"><img src="./img/twitter.png" alt="" /></a>
+    </div>
+    <script src="product_page.js"></script>
+  </body>
+</html>
