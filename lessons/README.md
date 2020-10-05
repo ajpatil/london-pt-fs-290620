@@ -23,3 +23,17 @@
 [Algorithms and Testing](https://youtu.be/nPfL3dj118c)
 
 [Module 2 Project Features](https://youtu.be/jPMjsH_oSaA)
+
+[Node Intro](https://youtu.be/PXkTmo9_Kpc)
+
+[Authentication](https://youtu.be/mrwrSrgg-i4)
+
+[Server Side Rendering](https://youtu.be/wUP76Av-KJU)
+
+[Serverless](https://youtu.be/uyMIqB_L_30)
+
+[Web sockets](https://youtu.be/yPGZfWr-NTU)
+
+[Async JS and Fetch](https://youtu.be/HcA58y5tqTw)
+
+[More Fetching](https://youtu.be/mUtavPMFxJI)
